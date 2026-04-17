@@ -163,7 +163,10 @@ function InvestigationView() {
           </div>
 
           {/* Histogram strip */}
-          <div className="px-3 py-2 border-b border-border bg-[var(--panel)] grid grid-cols-30 gap-[2px] h-12">
+          <div
+            className="px-3 py-2 border-b border-border bg-[var(--panel)] grid gap-[2px] h-12"
+            style={{ gridTemplateColumns: "repeat(30, minmax(0, 1fr))" }}
+          >
             {Array.from({ length: 30 }).map((_, i) => {
               const v = (Math.sin(i * 0.7) + 1) * 0.5 * 100;
               const sev = i === 22 ? "bg-critical" : i === 18 ? "bg-high" : v > 60 ? "bg-warning/60" : "bg-info/40";
